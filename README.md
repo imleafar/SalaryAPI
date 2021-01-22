@@ -4,9 +4,9 @@ API created for studies. It's supposed to manage salaries.
 
 ## Building the server Using Docker
 
-It is possible to build the server using Docker. To [download this tool go to the Docker website] (https://docs.docker.com/compose/install/).
-You will also need the latest version of python found at https://www.python.org/downloads/
-To build and run the server using this tool, just use the commands:
+It is possible to build the server using Docker. /n To download this tool go to the Docker website (https://docs.docker.com/compose/install/).
+/n You will also need the latest version of python found at https://www.python.org/downloads/
+/n To build and run the server using this tool, just use the commands:
 
 
 ```
