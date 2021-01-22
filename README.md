@@ -18,6 +18,8 @@ docker-compose up
 
 ```
 
+docker-compose up (again if the first time didn't work)
+
 The built server will be answering through port 8000. In this case you will be able to access the API through URl: 0.0.0.0:8000/ 
 
 
