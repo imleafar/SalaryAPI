@@ -1,0 +1,60 @@
+{% extends "salary_register/base.html" %}
+
+
+{% block content %}
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>CPF</td>
+            <td>Date</td>
+            <td>Salary</td>
+            <td>Discounts</td>
+            <td>
+                <a href="{% url 'salary_insert' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Add New
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for salary in salary_list %}
+            <tr>
+                <td>{{salary.cpf}}</td>
+                <td>{{salary.date}}</td>
+                <td>{{salary.salary}}</td>
+                <td>{{salary.discounts}}</td>
+                <td>
+                   <a href="{% url 'salary_update' salary.id %}" class="btn text-secondary px-0">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a>
+                    <form action="{% url 'salary_delete' salary.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>Best Salary</td>
+            <td>Worst Salary</td>
+            <td>Average Discounts</td>
+            <td>Average Wages</td>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>{{best_salary}}</td>
+                <td>{{worst_salary}}</td>
+                <td>{{average_discounts}}</td>
+                <td>{{average_wages}}</td>
+            </tr>
+    </tbody>
+</table>
+{% endblock content %}

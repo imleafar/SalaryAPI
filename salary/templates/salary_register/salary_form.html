@@ -1,0 +1,23 @@
+{% extends "salary_register/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{form.cpf|as_crispy_field}}
+    {{form.date|as_crispy_field}}
+    {{form.salary|as_crispy_field}}
+    {{form.discounts|as_crispy_field}}
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i>
+                Submit</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'salary_list' %}" class="btn btn-secondary btn-block btn-lg">
+                <i class="fas fa-stream"></i> Salary List
+            </a>
+        </div>
+    </div>
+</form>
+{% endblock content %}
