@@ -106,7 +106,3 @@ media/
 *.pyc
 *.db
 *.pid
-
-
-#Migrations
-**/migrations/*
