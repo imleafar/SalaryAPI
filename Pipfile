@@ -7,6 +7,9 @@ name = "pypi"
 django = "*"
 django-crispy-forms = "*"
 django-cpf = "*"
+coverage = "*"
+psycopg2-binary = "*"
+django-rest-framework = "*"
 
 [dev-packages]
 

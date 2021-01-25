@@ -34,7 +34,8 @@ def user_form(request, id=0):
         if form.is_valid():
             form.save()
         else:
-            return HttpResponse("<script>alert('Please do not try to insert fake data. Date must be in mm/dd/yyyy format.')</script>")
+            return HttpResponse("<script>alert('Please do not try to insert fake data. Date must be in mm/dd/yyyy "
+                                "format.')</script>")
         return redirect('/users')
 
 
@@ -85,5 +86,4 @@ def login_page(request):
 
 def logout_user(request):
     logout(request)
-    return\
-        redirect('login')
+    return redirect('login')
