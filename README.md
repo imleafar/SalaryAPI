@@ -20,7 +20,25 @@ docker-compose up
 
 docker-compose up (again if the first time didn't work)
 
-The built server will be answering through port 8000. In this case you will be able to access the API through URl: 0.0.0.0:8000/ 
+The built server will be answering through port 8000. In this case you will be able to access the API through URl: 0.0.0.0:8000/
+
+
+## TestCases
+
+
+To run the tests, you will need to uncomment the database settings that are commented on, and comment on the PostgreSQL database settings.
+
+After that, just run the following commands on the project work directory:
+
+
+```
+pip install pipenv
+pipenv install && pipenv shell
+./manage.py makemigrations
+./manage.py migrate
+./manage.py test
+
+```
 
 
 ## Read The Docs
