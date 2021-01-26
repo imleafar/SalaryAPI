@@ -3,7 +3,9 @@ import statistics
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from rest_framework import viewsets
 
+from .serializers import SalarySerializer
 from .forms import SalaryForm
 from .models import Salary
 
@@ -66,3 +68,8 @@ def salary_delete(request, id):
     salary = Salary.objects.get(pk=id)
     salary.delete()
     return redirect('/salaries')
+
+
+class SalaryViewSet(viewsets.ModelViewSet):
+    queryset = Salary.objects.all().order_by('salary')
+    serializer_class = SalarySerializer

@@ -10,6 +10,7 @@ django-cpf = "*"
 coverage = "*"
 psycopg2-binary = "*"
 django-rest-framework = "*"
+djangorestframework = "*"
 
 [dev-packages]
 

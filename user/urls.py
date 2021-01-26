@@ -1,5 +1,11 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
+
 from . import views
+
+
+router = routers.DefaultRouter()
+router.register(r'', views.UserViewSet)
 
 urlpatterns = [
     path('create', views.user_form, name='user_insert'),
@@ -10,4 +16,6 @@ urlpatterns = [
     path('login/', views.login_page, name="login"),
     path('logout/', views.logout_user, name="logout"),
     path('', views.login_page, name="login"),
+    path('api-users/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

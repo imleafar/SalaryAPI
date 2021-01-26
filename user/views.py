@@ -3,7 +3,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from rest_framework import viewsets
 
+from .serializers import UserSerializer
 from .forms import UserForm, CreateAccountForm
 from .models import User
 
@@ -87,3 +89,8 @@ def login_page(request):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all().order_by('name')
+    serializer_class = UserSerializer

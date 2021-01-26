@@ -16,7 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from rest_framework import routers
+
 from salary import views
+
+router = routers.DefaultRouter()
+router.register(r'', views.SalaryViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +30,6 @@ urlpatterns = [
     path('salary/create', views.salary_form, name='salary_insert'),
     path('salary/<int:id>/', views.salary_form, name='salary_update'),
     path('salary/delete/<int:id>/', views.salary_delete, name='salary_delete'),
-    path('salaries/', views.salary_list, name='salary_list')
+    path('salaries/', views.salary_list, name='salary_list'),
+    path('api-salaries/', include(router.urls)),
 ]
